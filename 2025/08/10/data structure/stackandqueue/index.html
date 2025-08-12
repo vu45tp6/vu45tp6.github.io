@@ -23,7 +23,7 @@
   
     <meta name="description" content="stack   Stack是一種先進後出（Last In First Out, LIFO）的資料結構。它的操作主要有兩個： push：將元素放入堆疊 pop：將元素從堆疊中取出      123456#define STACKSIZE 100struct stack &#123; &#x2F;&#x2F;宣告一個名為 stack 的結構    &#x2F;*Data_Type*&#x2F;int items[STACKSIZE]; &#x2F;&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Stack and Queue">
+<meta property="og:title" content="CO2012資結筆記:Stack and Queue">
 <meta property="og:url" content="http://example.com/2025/08/10/data%20structure/stackandqueue/">
 <meta property="og:site_name" content="vu45tp6&#39;s blog">
 <meta property="og:description" content="stack   Stack是一種先進後出（Last In First Out, LIFO）的資料結構。它的操作主要有兩個： push：將元素放入堆疊 pop：將元素從堆疊中取出      123456#define STACKSIZE 100struct stack &#123; &#x2F;&#x2F;宣告一個名為 stack 的結構    &#x2F;*Data_Type*&#x2F;int items[STACKSIZE]; &#x2F;&#x2F;">
@@ -36,8 +36,12 @@
 <meta property="og:image" content="http://example.com/img/datastructure/chapone/1-6.png">
 <meta property="og:image" content="http://example.com/img/datastructure/chapone/1-7.png">
 <meta property="og:image" content="http://example.com/img/datastructure/chapone/1-8.png">
+<meta property="og:image" content="http://example.com/img/datastructure/chapone/1-9.png">
+<meta property="og:image" content="http://example.com/img/datastructure/chapone/1-10.png">
+<meta property="og:image" content="http://example.com/img/datastructure/chapone/1-11.png">
+<meta property="og:image" content="http://example.com/img/datastructure/chapone/1-12.png">
 <meta property="article:published_time" content="2025-08-10T12:52:35.831Z">
-<meta property="article:modified_time" content="2025-08-11T03:53:18.976Z">
+<meta property="article:modified_time" content="2025-08-12T04:17:33.025Z">
 <meta property="article:author" content="Johnson Hsieh">
 <meta property="article:tag" content="data structure">
 <meta property="article:tag" content="stack">
@@ -47,7 +51,7 @@
   
   
   
-  <title>Stack and Queue - vu45tp6&#39;s blog</title>
+  <title>CO2012資結筆記:Stack and Queue - vu45tp6&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +232,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Stack and Queue"></span>
+            <span id="subtitle" data-typed-text="CO2012資結筆記:Stack and Queue"></span>
           
         </div>
 
@@ -251,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          3.5k 字
         
       </span>
     
@@ -262,7 +266,7 @@
         
         
         
-          22 分鐘
+          29 分鐘
         
       </span>
     
@@ -299,12 +303,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Stack and Queue</h1>
+            <h1 id="seo-header">CO2012資結筆記:Stack and Queue</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最後更新於：2025年8月11日 中午
+                    本文最後更新於：2025年8月12日 中午
                   
                 
               </p>
@@ -693,6 +697,110 @@
 <li>堆疊保存「走過的路徑」以及「當前位置未探索完的方向」，方便回溯。  </li>
 <li>成功時，堆疊的內容就是一條走到出口的路徑。</li>
 </ul>
+<hr>
+<h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><p><img src="/img/datastructure/chapone/1-9.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="定義"><a href="#定義" class="headerlink" title="定義"></a>定義</h3><ul>
+<li><strong>Queue（佇列）</strong> 是一種有順序的資料結構：<ul>
+<li><strong>插入</strong>操作在尾端（rear）進行</li>
+<li><strong>刪除</strong>操作在前端（front）進行</li>
+</ul>
+</li>
+<li>被稱為 <strong>First-In First-Out（FIFO）</strong> 結構</li>
+</ul>
+<h3 id="操作示意（參考圖-1-9）"><a href="#操作示意（參考圖-1-9）" class="headerlink" title="操作示意（參考圖 1-9）"></a>操作示意（參考圖 1-9）</h3><ol>
+<li>初始狀態：front 指向佇列開頭，rear 指向最後一個有效元素  </li>
+<li>加入元素 <code>χ</code>：從 rear 插入</li>
+<li>刪除元素：從 front 移除（如移除 <code>ω</code>、<code>λ</code>）</li>
+<li>再加入元素 <code>ξ</code>：從 rear 繼續加，依序延伸</li>
+</ol>
+<hr>
+<p><img src="/img/datastructure/chapone/1-10.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Queue-陣列實作（圖-1-10）"><a href="#Queue-陣列實作（圖-1-10）" class="headerlink" title="Queue 陣列實作（圖 1-10）"></a>Queue 陣列實作（圖 1-10）</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAXQUEUE 100</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">queue</span> &#123;</span><br>    <span class="hljs-type">int</span> front, rear;<br>    Data_Type items[MAXQUEUE];<br>&#125; q;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Method-A：正常版本"><a href="#Method-A：正常版本" class="headerlink" title="Method A：正常版本"></a>Method A：正常版本</h3><ul>
+<li><code>front = 0; rear = -1;</code> 初始化</li>
+<li>插入：<code>q.items[++q.rear] = x;</code></li>
+<li>移除：<code>x = q.items[q.front++];</code></li>
+<li>判斷空：<code>rear &lt; front</code></li>
+</ul>
+<blockquote>
+<p> 若 <code>rear == MAXQUEUE - 1</code> → 無法再插入（overflow）</p>
+</blockquote>
+<hr>
+<h3 id="Method-A′：簡化版（不使用-front，但效率低）"><a href="#Method-A′：簡化版（不使用-front，但效率低）" class="headerlink" title="Method A′：簡化版（不使用 front，但效率低）"></a>Method A′：簡化版（不使用 front，但效率低）</h3><ul>
+<li><code>rear = -1;</code> 初始化</li>
+<li>插入：<code>q.items[++q.rear] = x;</code></li>
+<li>移除（需整個陣列搬移）：  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c">x = q.items[<span class="hljs-number">0</span>];<br><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; q.rear; i++) &#123;<br>    q.items[i] = q.items[i + <span class="hljs-number">1</span>];<br>&#125;<br>q.rear--;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>不建議使用，刪除效率極低（O(n)）</p>
+</blockquote>
+<hr>
+<h2 id="Queue-–-環狀佇列實作（圖-1-11）"><a href="#Queue-–-環狀佇列實作（圖-1-11）" class="headerlink" title="Queue – 環狀佇列實作（圖 1-11）"></a>Queue – 環狀佇列實作（圖 1-11）</h2><p><img src="/img/datastructure/chapone/1-11.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Method-B：Circular-Queue"><a href="#Method-B：Circular-Queue" class="headerlink" title="Method B：Circular Queue"></a>Method B：Circular Queue</h3><ul>
+<li>初始時front和rear都指向最後一格，表示佇列為空</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">q.front = q.rear = MAX - <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="為什麼front指向「第一個元素的前一格」？"><a href="#為什麼front指向「第一個元素的前一格」？" class="headerlink" title="為什麼front指向「第一個元素的前一格」？"></a>為什麼front指向「第一個元素的前一格」？</h3><p>這樣設計是為了簡化刪除（dequeue）的操作流程：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c">q.front = (q.front + <span class="hljs-number">1</span>) % MAX;      <span class="hljs-comment">// front 往前一格</span><br><span class="hljs-keyword">return</span> q.items[q.front];           <span class="hljs-comment">// 取出該位置的元素（即當前最前端）</span><br></code></pre></td></tr></table></figure>
+
+<p>這樣就能不用特判是否超出邊界，只要一律用 <code>% MAX</code> 來環繞即可。</p>
+<h3 id="為什麼要「少用一格空間」？"><a href="#為什麼要「少用一格空間」？" class="headerlink" title="為什麼要「少用一格空間」？"></a>為什麼要「少用一格空間」？</h3><p>若允許填滿整個queue，當rear繞一圈追上front時：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">q.front == q.rear;<br></code></pre></td></tr></table></figure>
+<p>會無法判斷queue是「空」還是「滿」。<br>為了解決這種模糊情況，設計上保留一格空間不使用。這樣：</p>
+<ul>
+<li><code>front == rear</code> 就代表 queue 為空</li>
+<li><code>(rear + 1) % MAX == front</code> 就代表 queue 為滿</li>
+</ul>
+<h3 id="判斷條件"><a href="#判斷條件" class="headerlink" title="判斷條件"></a>判斷條件</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 判斷「空佇列」</span><br>q.front == q.rear;<br><br><span class="hljs-comment">// 判斷「滿佇列」</span><br>(q.rear + <span class="hljs-number">1</span>) % MAX == q.front;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>雖然 queue 空間是 MAX，但實際上最多只能儲存 MAX - 1 個元素。</p>
+</blockquote>
+<h3 id="插入元素："><a href="#插入元素：" class="headerlink" title="插入元素："></a>插入元素：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (!Overflow()) &#123;<br>    q.rear = (q.rear + <span class="hljs-number">1</span>) % MAX;<br>    q.items[q.rear] = x;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="移除元素："><a href="#移除元素：" class="headerlink" title="移除元素："></a>移除元素：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (!Empty()) &#123;<br>    q.front = (q.front + <span class="hljs-number">1</span>) % MAX;<br>    <span class="hljs-keyword">return</span> q.items[q.front];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Priority-Queue（優先佇列）"><a href="#Priority-Queue（優先佇列）" class="headerlink" title="Priority Queue（優先佇列）"></a>Priority Queue（優先佇列）</h2><p><img src="/img/datastructure/chapone/1-12.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="定義-1"><a href="#定義-1" class="headerlink" title="定義"></a>定義</h3><p>在 Priority Queue（優先佇列）中，**元素的內在排序（優先權）**會決定出隊的順序，而不是插入的時間順序。</p>
+<ul>
+<li><p>在 <strong>ascending priority queue</strong> 中：</p>
+<ul>
+<li>可以任意插入元素</li>
+<li>只能刪除目前<strong>最小值（smallest item）</strong></li>
+</ul>
+</li>
+<li><p>在 <strong>descending priority queue</strong> 中：</p>
+<ul>
+<li>只能刪除目前<strong>最大值（largest item）</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Stack 和 Queue 也可以視為一種特殊情況的 Priority Queue！</p>
+</blockquote>
+<hr>
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><h4 id="Insert-範例："><a href="#Insert-範例：" class="headerlink" title="Insert 範例："></a>Insert 範例：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 插入元素 x（需測試 overflow）</span><br>p.items[++p.rear] = x;<br></code></pre></td></tr></table></figure>
+
+<h4 id="Remove-步驟"><a href="#Remove-步驟" class="headerlink" title="Remove 步驟"></a>Remove 步驟</h4><ol>
+<li><p><strong>找出目前狀態中最小（或最大）元素</strong><br>→ 需要對整個陣列進行 <strong>線性搜尋</strong>（sequential search）</p>
+</li>
+<li><p><strong>從陣列中刪除一個元素時，可以怎麼做？</strong></p>
+<ul>
+<li><p><strong>(A) 使用 “empty” 標記</strong><br>將刪除位置標記為空，可能之後會進行壓縮（compact）<br>→ 缺點：空間浪費 or 效能差</p>
+</li>
+<li><p><strong>(B) 改變插入策略</strong><br>把新元素插入到第一個空位<br>→ 缺點：可能打亂順序；插入成本高</p>
+</li>
+<li><p><strong>(C) 整體搬移元素</strong><br>刪除後，把後面所有元素向前搬移一格<br>→ 缺點：效率低，O(n) 時間複雜度</p>
+</li>
+<li><p><strong>(D) 移動搜尋工作</strong><br>移除與插入之間配合搜尋與轉移<br>→ 可搭配 binary search 決定最佳插入位置（若已有排序）</p>
+</li>
+<li><p><strong>(E) 容許空洞（gap）</strong><br>允許陣列中出現空格，留待之後插入時再利用<br>→ 提升刪除效率，但需要處理 gap 管理邏輯</p>
+</li>
+</ul>
+</li>
+</ol>
 
                 
               </div>
@@ -742,7 +850,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Stack and Queue</div>
+      <div>CO2012資結筆記:Stack and Queue</div>
       <div>http://example.com/2025/08/10/data structure/stackandqueue/</div>
     </div>
     <div class="license-meta">
@@ -787,11 +895,17 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2025/08/12/sk8/ollie%20diary/" title="Ollie&#39;s Diary">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Ollie&#39;s Diary</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/08/006208/" title="0050 v.s. 006208">
+                      <a href="/2025/08/08/finance/006208/" title="0050 v.s. 006208">
                         <span class="hidden-mobile">0050 v.s. 006208</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
