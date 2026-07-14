@@ -3,3 +3,67 @@
   background-color: rgba(197, 200, 202, 0.08);
   border-color: #777d81;
 }
+
+/* Reusable responsive image components for posts. */
+.markdown-body .post-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem auto;
+}
+
+.markdown-body .post-figure {
+  width: 100%;
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+.markdown-body .post-image-grid .post-figure {
+  margin: 0;
+}
+
+.markdown-body .post-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.markdown-body .post-image.post-image--portrait {
+  aspect-ratio: 5 / 7;
+}
+
+.markdown-body .post-image.post-image--landscape {
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
+}
+
+.markdown-body .post-image.post-image--wide {
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+}
+
+.markdown-body .post-image.post-image--square {
+  max-width: 600px;
+  aspect-ratio: 1 / 1;
+}
+
+.markdown-body figcaption.post-image-caption {
+  display: block;
+  width: 100%;
+  margin: 0.3rem 0 0;
+  padding: 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 576px) {
+  .markdown-body .post-image-grid {
+    grid-template-columns: 1fr;
+  }
+}
